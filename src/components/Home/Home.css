@@ -1,0 +1,9 @@
+.resorts {
+  text-align: center;
+}
+
+.cardGrid {
+  display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
