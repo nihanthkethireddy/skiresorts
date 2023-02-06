@@ -1,11 +1,13 @@
 import './SkiCard.css';
 
 function SkiCard(props) {
+
+  const {setPopup, deleteResort, resort} = props
   return <div className={'card'}>
-    <div className={'resortDetails'} onClick={() => props.openResortPopup(props.resort, 'view')}>Resort {props.resort}</div>
+    <div className={'resortDetails'} onClick={() => setPopup({open: true, resort: resort, readOnly: true})}>Resort {resort.uuid}</div>
     <div className={'resortActions'}>
-      <button onClick={() => props.setPopup({open: true, resort: props.resort, mode: 'edit'})}></button>
-      <button onClick={() => props.deleteResort(props.resort)}></button>
+      <button onClick={() => setPopup({open: true, resort: resort, readOnly: false})}>Edit</button>
+      <button onClick={() => deleteResort(resort.id)}>Delete</button>
     </div>
   </div>
 }

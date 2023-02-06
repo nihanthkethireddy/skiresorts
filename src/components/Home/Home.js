@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { SkiCard } from '../SkiCard';
-import {SkiDetails} from '../SkiDetails';
+import {SkiPopup} from '../SkiPopup';
 import './Home.css';
 
 function Home() {
-  const [resorts, setResorts] = useState([1,2,3,4,5,6,7,8,9,10])
-  const [popup, setPopup] = useState({ open: false, resort: {}, mode: null })
+  const [resorts, setResorts] = useState(null)
+  const [popup, setPopup] = useState({ open: false, resort: {}, readOnly: true })
 
   const displayResorts = () => {
-    if (resorts?.length > 0) {
-      return resorts.map((resort) => {
-        return <SkiCard resort={resort} setPopup={setPopup} deleteResort={deleteResort} />
+    if (resorts && Object.keys(resorts).length > 0) {
+      return Object.keys(resorts).map((key) => {
+        return <SkiCard key={key} resort={resorts[key]} setPopup={setPopup} deleteResort={deleteResort} />
       })
     }
     return <div>No Resorts Found</div>
@@ -18,23 +18,27 @@ function Home() {
 
   const displayPopup = () => {
     if (popup.open) {
-      return <SkiDetails resort={popup.resort} deleteResort={deleteResort} updateResort={updateResort} mode={popup.mode} setPopup={setPopup}/>
+      return <SkiPopup resort={popup.resort} deleteResort={deleteResort} updateResort={updateResort} readOnly={popup.readOnly} setPopup={setPopup}/>
     }
     return null
   }
 
-  const deleteResort = (resort) => {
-    console.log('deleted')
+  const deleteResort = (id) => {
+    const tempData = {...resorts}
+    delete tempData[id]
+    setResorts(tempData)
   }
 
   const updateResort = (resort) => {
-    console.log('updated')
+    const tempData = {...resorts}
+    tempData[resort.id] = resort
+    setResorts(tempData)
   }
 
   return (
     <div className="resorts">
       {displayPopup()}
-      <div>Ski Resorts <button onClick={() =>  setPopup({open: true, resort: {}, mode: 'edit'})}>Add Resort</button></div>
+      <div>Ski Resorts <button onClick={() =>  setPopup({open: true, resort: {}, readOnly: false})}>Add Resort</button></div>
       <div className={'cardGrid'}>{displayResorts()}</div>
     </div>
   );
