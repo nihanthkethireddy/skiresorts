@@ -1,9 +1,16 @@
 .card {
   height: 300px;
   width: 300px;
-  background-color: red;
+  background-color: grey;
   margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+.resortDetails {
+  display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+

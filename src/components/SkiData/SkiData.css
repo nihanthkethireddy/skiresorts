@@ -1,9 +1,13 @@
 .card {
-  height: 300px;
-  width: 300px;
-  background-color: red;
   margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.cam {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

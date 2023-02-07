@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> with no props should match the snapshot 1`] = `"<div class=\\"resorts\\"><div>Ski Resorts <button>Add Resort</button></div><div class=\\"cardGrid\\"><div>No Resorts Found</div></div></div>"`;
