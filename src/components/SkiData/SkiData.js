@@ -48,6 +48,11 @@ function SkiData(props) {
   }
     const formSubmit = (e) => {
       e.preventDefault();
+      const tempErrors = [...errors]
+      if(!formData.img) {
+        tempErrors.push('Img is required')
+        setErrors(tempErrors)
+      }
 
       if (errors.length > 0) {
         setEnableErrors(true)
@@ -61,6 +66,11 @@ function SkiData(props) {
     const validateField = (fieldName, value) => {
       let tempErrors = [];
       switch (fieldName) {
+        case 'img':
+          if (value.length == 0) {
+            tempErrors.push('Image is required');
+          }
+          break;
         case 'name':
           if (value.length == 0) {
             tempErrors.push('Name is required');
@@ -84,7 +94,7 @@ function SkiData(props) {
           {enableErrors ? errors.map(err => <p>{err}</p>) : null}
         </div>
         { !readOnly ? <div className="cam">{WebcamComponent()}</div> : <img src={formData.img}></img> }
-        <div>
+        <div class='inputElements'>
           <label htmlFor="name">Name</label>
           <input type="text" required className="form-control" name="name"
             placeholder="Resort Name"
@@ -92,7 +102,7 @@ function SkiData(props) {
             disabled={readOnly}
             onChange={handleUserInput} />
         </div>
-        <div>
+        <div class='inputElements'>
           <label htmlFor="runs">Runs</label>
           <input type="text" required className="form-control" name="runs"
             placeholder="Ski Runs"
@@ -100,7 +110,7 @@ function SkiData(props) {
             disabled={readOnly}
             onChange={handleUserInput} />
         </div>
-        <button type="submit" className="btn btn-primary">Save</button>
+        <button type="submit" disabled={readOnly} className="btn btn-primary">Save</button>
       </form>
     )
   }

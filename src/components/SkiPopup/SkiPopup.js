@@ -24,9 +24,6 @@ function SkiPopup(props) {
   >
     {close => (
       <div className="modal">
-        <button className="close" onClick={() => closePopup(close)}>
-          &times;
-        </button>
         <div className="header"> Resort </div>
         <div className="content">
           <SkiData resort={resort} readOnly={readOnly} updateResort={updateResort} setPopup={setPopup}/>
@@ -35,14 +32,14 @@ function SkiPopup(props) {
           <button
             className="button"
             onClick={() => setPopup({open: true, resort: resort, readOnly: false})}
-            disable={!readOnly}
+            disabled={!readOnly}
           >
             Edit
           </button>
           <button
             className="button"
             onClick={() => deleteAndClose(close)}
-            disable={!readOnly}
+            disabled={!readOnly}
           >
             Delete
           </button>
@@ -50,7 +47,7 @@ function SkiPopup(props) {
             className="button"
             onClick={() => closePopup(close)}
           >
-            close modal
+            Close
           </button>
         </div>
       </div>

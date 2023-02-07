@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SkiCard /> with props should match the snapshot 1`] = `"<div class=\\"card\\"><div class=\\"resortDetails\\"><img/><span>Name: Resort 1</span><span>Ski Runs: 100</span></div><div class=\\"resortActions\\"><button>Edit</button><button>Delete</button></div></div>"`;

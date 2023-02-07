@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SkiData /> with ReadOnly View should match the snapshot 1`] = `"<form class=\\"demoForm\\"><div class=\\"panel panel-default\\"></div><div class=\\"cam\\"><video autoplay=\\"\\" muted=\\"\\" playsinline=\\"\\"></video><button name=\\"img\\">Capture photo</button></div><div><label for=\\"name\\">Name</label><input type=\\"text\\" required=\\"\\" class=\\"form-control\\" name=\\"name\\" placeholder=\\"Resort Name\\" value=\\"Resort 1\\"/></div><div><label for=\\"runs\\">Runs</label><input type=\\"text\\" required=\\"\\" class=\\"form-control\\" name=\\"runs\\" placeholder=\\"Ski Runs\\" value=\\"100\\"/></div><button type=\\"submit\\" class=\\"btn btn-primary\\">Save</button></form>"`;
